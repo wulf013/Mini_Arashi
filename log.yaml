@@ -1,0 +1,76 @@
+version: 1 #denotes the version of the yaml file???
+disable_existing_loggers: false # prevents object collisions from occuring
+
+formatters:
+    standard:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    error:
+        format: "%(levelname)s <PID %(process)d:%(processName)s> %(name)s.%(funcName)s(): %(message)s"
+
+handlers:
+    console: # console handler
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: standard
+        stream: ext://sys.stdout
+
+    info_file_handler: # info handler
+        class: logging.handlers.RotatingFileHandler  #allows for the opening of files to store logs
+        level: INFO
+        formatter: standard
+        filename: logs/info.log # location and name of the log file
+        maxBytes: 10485760 # 10MB
+        backupCount: 20 # number of additional files to be made when rollover happens
+        encoding: utf8
+
+    error_file_handler: # error handler
+        class: logging.handlers.RotatingFileHandler  #allows for the opening of files to store logs
+        level: ERROR
+        formatter: error
+        filename: logs/errors.log # location and name of the log file
+        maxBytes: 10485760 # 10MB
+        backupCount: 20 # number of additional files to be made when rollover happens
+        encoding: utf8
+
+    debug_file_handler: # debug handler
+        class: logging.handlers.RotatingFileHandler  #allows for the opening of files to store logs
+        level: DEBUG
+        formatter: standard
+        filename: logs/debug.log # location and name of the log file
+        maxBytes: 10485760 # 10MB
+        backupCount: 20 # number of additional files to be made when rollover happens
+        encoding: utf8
+
+    critical_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: CRITICAL
+        formatter: standard
+        filename: logs/critical.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+
+    warn_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: WARNING
+        formatter: standard
+        filename: logs/warn.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+
+root: # denotes the format for the root logger
+    level: NOTSET
+    handlers: [console]
+    propagate: yes
+
+loggers: # denotes the format for logger objects you'll want to make sure that you're using the correct names
+    __main__:
+        level: INFO
+        handlers: [console, info_file_handler, error_file_handler, critical_file_handler, debug_file_handler, warn_file_handler]
+        propagate: no
+
+    __main__.terminal:
+        level: DEBUG
+        handlers: [info_file_handler, error_file_handler, critical_file_handler, debug_file_handler, warn_file_handler]
+        propagate: no #determines if the parent will also log this, can appear as 'double logging'
