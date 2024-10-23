@@ -74,3 +74,8 @@ loggers: # denotes the format for logger objects you'll want to make sure that y
         level: DEBUG
         handlers: [info_file_handler, error_file_handler, critical_file_handler, debug_file_handler, warn_file_handler]
         propagate: no #determines if the parent will also log this, can appear as 'double logging'
+
+    __main__.index:
+        level: DEBUG
+        handlers: [info_file_handler, error_file_handler, critical_file_handler, debug_file_handler, warn_file_handler]
+        propagate: no
