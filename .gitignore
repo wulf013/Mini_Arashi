@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/.vs/Mini_Arashi
+/.vs/Mini_Arashi/FileContentIndex
+/.vs/Mini_Arashi/FileContentIndex/ad5eda92-f84b-4041-ab3c-a20dd3d749c9.vsidx
+/.vs/Mini_Arashi/v17
+/.vs/Mini_Arashi/v17/.wsuo
+/.vs/Mini_Arashi/v17/DocumentLayout.json
+/.vs/ProjectSettings.json
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
