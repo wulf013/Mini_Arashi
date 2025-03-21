@@ -14,6 +14,7 @@ import re #allows for interactions beyond US ASCII standards
 def create_index():
     print("creating index")
 
+# the intention of this class is to provide an inverted index creator that will be leveraged to a web facing search engine housed on the TopGame podcast website. 
 class inverted_index:
     def __init__(self) -> None: #object contructor
         self.index = {} #{term: {doc_id:{[timestamp]},frequency}}
