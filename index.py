@@ -8,11 +8,18 @@ log = logging.getLogger('__main__.'+__name__)
 
 #imported libraries
 import os #directory navigawtion
-import tqdm #progress bars, because its cool
+import tqdm #progress bars, because its cool but also gives visual cues and point of intercept for error and log statements. 
 import re #allows for interactions beyond US ASCII standards
 
 def create_index():
     print("creating index")
+
+class index: #the self named class will build the searchable set of generated data from the
+    def __init__(self) -> None: #object constructor
+        ### set some sort of checksum here so that the initalization can tell if it needs to build the index or just search it I imagine this might just be a developer function anyways
+        self.index = {} # the index will have the following format  {term: {doc_id:{[timestamp]},frequency}}
+        self.documents = [] # list of documents that the init will build
+        self.tokens = [] #the tokens produced after parsing through a document
 
 # the intention of this class is to provide an inverted index creator that will be leveraged to a web facing search engine housed on the TopGame podcast website. 
 class inverted_index:
