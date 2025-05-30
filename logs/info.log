@@ -12,3 +12,192 @@
 2025-05-30 00:01:21,655 - __main__ - INFO - running main
 2025-05-30 00:01:59,197 - __main__ - INFO - running main
 2025-05-30 00:04:18,452 - __main__ - INFO - running main
+2025-05-30 00:08:51,264 - __main__ - INFO - running main
+2025-05-30 00:09:34,213 - __main__ - INFO - running main
+2025-05-30 00:09:55,567 - __main__ - INFO - running main
+2025-05-30 00:10:07,966 - __main__ - INFO - running main
+2025-05-30 00:10:53,579 - __main__ - INFO - running main
+2025-05-30 00:11:30,478 - __main__ - INFO - running main
+2025-05-30 00:11:30,479 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:12:25,505 - __main__ - INFO - running main
+2025-05-30 00:12:25,506 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:18:08,896 - __main__ - INFO - running main
+2025-05-30 00:18:08,896 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:18:08,896 - __main__.index - INFO - accessing directory
+2025-05-30 00:18:08,905 - __main__.index - INFO - adding document
+2025-05-30 00:18:30,044 - __main__ - INFO - running main
+2025-05-30 00:18:30,044 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:18:30,045 - __main__.index - INFO - accessing directory
+2025-05-30 00:18:30,052 - __main__.index - INFO - adding document
+2025-05-30 00:22:46,302 - __main__ - INFO - running main
+2025-05-30 00:22:46,303 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:22:46,303 - __main__.index - INFO - accessing directory
+2025-05-30 00:22:46,312 - __main__.index - INFO - adding document
+2025-05-30 00:22:46,314 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:23:10,865 - __main__ - INFO - running main
+2025-05-30 00:23:10,866 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:23:10,866 - __main__.index - INFO - accessing directory
+2025-05-30 00:23:10,874 - __main__.index - INFO - adding document
+2025-05-30 00:23:10,876 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:25:54,822 - __main__ - INFO - running main
+2025-05-30 00:25:54,823 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:25:54,823 - __main__.index - INFO - accessing directory
+2025-05-30 00:25:54,831 - __main__.index - INFO - adding document
+2025-05-30 00:25:54,832 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:26:32,815 - __main__ - INFO - running main
+2025-05-30 00:26:32,815 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:26:32,816 - __main__.index - INFO - accessing directory
+2025-05-30 00:26:32,824 - __main__.index - INFO - adding document
+2025-05-30 00:26:32,826 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:27:05,545 - __main__ - INFO - running main
+2025-05-30 00:27:05,546 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:27:05,546 - __main__.index - INFO - accessing directory
+2025-05-30 00:27:05,554 - __main__.index - INFO - adding document
+2025-05-30 00:27:05,555 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:27:16,040 - __main__ - INFO - running main
+2025-05-30 00:27:16,042 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:27:16,042 - __main__.index - INFO - accessing directory
+2025-05-30 00:27:16,050 - __main__.index - INFO - adding document
+2025-05-30 00:27:16,052 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:27:36,344 - __main__ - INFO - running main
+2025-05-30 00:27:36,344 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:27:36,345 - __main__.index - INFO - accessing directory
+2025-05-30 00:27:36,354 - __main__.index - INFO - adding document
+2025-05-30 00:27:36,356 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:35:15,758 - __main__ - INFO - running main
+2025-05-30 00:35:15,758 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:35:15,759 - __main__.index - INFO - accessing directory
+2025-05-30 00:35:15,767 - __main__.index - INFO - adding document
+2025-05-30 00:35:15,778 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:36:18,681 - __main__ - INFO - running main
+2025-05-30 00:36:18,682 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:36:18,683 - __main__.index - INFO - accessing directory
+2025-05-30 00:36:18,691 - __main__.index - INFO - adding document
+2025-05-30 00:36:18,692 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:36:26,312 - __main__ - INFO - running main
+2025-05-30 00:36:26,313 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:36:26,313 - __main__.index - INFO - accessing directory
+2025-05-30 00:36:26,322 - __main__.index - INFO - adding document
+2025-05-30 00:36:26,323 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:36:51,338 - __main__ - INFO - running main
+2025-05-30 00:36:51,339 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:36:51,339 - __main__.index - INFO - accessing directory
+2025-05-30 00:36:51,347 - __main__.index - INFO - adding document
+2025-05-30 00:36:51,349 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:38:23,954 - __main__ - INFO - running main
+2025-05-30 00:38:23,955 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:38:23,955 - __main__.index - INFO - accessing directory
+2025-05-30 00:38:23,964 - __main__.index - INFO - adding document
+2025-05-30 00:38:23,965 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:38:55,895 - __main__ - INFO - running main
+2025-05-30 00:38:55,895 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:38:55,896 - __main__.index - INFO - accessing directory
+2025-05-30 00:38:55,905 - __main__.index - INFO - adding document
+2025-05-30 00:38:55,906 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:38:55,965 - __main__ - INFO - inspecting term
+2025-05-30 00:42:10,898 - __main__ - INFO - running main
+2025-05-30 00:42:10,898 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:42:10,899 - __main__.index - INFO - accessing directory
+2025-05-30 00:42:10,908 - __main__.index - INFO - adding document
+2025-05-30 00:42:10,917 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:42:10,974 - __main__ - INFO - inspecting term
+2025-05-30 00:47:18,094 - __main__ - INFO - running main
+2025-05-30 00:47:18,094 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:47:18,095 - __main__.index - INFO - accessing directory
+2025-05-30 00:47:18,103 - __main__.index - INFO - adding document
+2025-05-30 00:47:18,111 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:47:18,112 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:47:18,113 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:47:18,164 - __main__ - INFO - inspecting term
+2025-05-30 00:51:38,716 - __main__ - INFO - running main
+2025-05-30 00:51:38,716 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:51:38,716 - __main__.index - INFO - accessing directory
+2025-05-30 00:51:38,724 - __main__.index - INFO - adding document
+2025-05-30 00:51:38,726 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:51:38,726 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:51:38,726 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:51:38,783 - __main__ - INFO - inspecting term
+2025-05-30 00:52:17,006 - __main__ - INFO - running main
+2025-05-30 00:52:17,006 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:52:17,007 - __main__.index - INFO - accessing directory
+2025-05-30 00:52:17,015 - __main__.index - INFO - adding document
+2025-05-30 00:52:17,017 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:52:17,017 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:52:17,018 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:52:17,072 - __main__ - INFO - inspecting term
+2025-05-30 00:52:26,198 - __main__ - INFO - running main
+2025-05-30 00:52:26,198 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:52:26,199 - __main__.index - INFO - accessing directory
+2025-05-30 00:52:26,206 - __main__.index - INFO - adding document
+2025-05-30 00:52:26,208 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:52:26,208 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:52:26,209 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:52:26,265 - __main__ - INFO - inspecting term
+2025-05-30 00:55:18,440 - __main__ - INFO - running main
+2025-05-30 00:55:18,441 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:55:18,441 - __main__.index - INFO - accessing directory
+2025-05-30 00:55:18,449 - __main__.index - INFO - adding document
+2025-05-30 00:55:18,451 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:55:18,452 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:55:18,452 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:55:18,505 - __main__ - INFO - inspecting term
+2025-05-30 00:55:43,876 - __main__ - INFO - running main
+2025-05-30 00:55:43,877 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:55:43,877 - __main__.index - INFO - accessing directory
+2025-05-30 00:55:43,885 - __main__.index - INFO - adding document
+2025-05-30 00:55:43,887 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:55:43,888 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:55:43,888 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:55:43,943 - __main__ - INFO - inspecting term
+2025-05-30 00:56:38,956 - __main__ - INFO - running main
+2025-05-30 00:56:38,957 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:56:38,957 - __main__.index - INFO - accessing directory
+2025-05-30 00:56:38,965 - __main__.index - INFO - adding document
+2025-05-30 00:56:38,967 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:56:38,968 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:56:38,968 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:56:39,022 - __main__ - INFO - inspecting term
+2025-05-30 00:57:26,592 - __main__ - INFO - running main
+2025-05-30 00:57:26,592 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:57:26,593 - __main__.index - INFO - accessing directory
+2025-05-30 00:57:26,603 - __main__.index - INFO - adding document
+2025-05-30 00:57:26,605 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:57:26,606 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:57:26,606 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:57:26,663 - __main__ - INFO - inspecting term
+2025-05-30 00:58:57,000 - __main__ - INFO - running main
+2025-05-30 00:58:57,001 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 00:58:57,002 - __main__.index - INFO - accessing directory
+2025-05-30 00:58:57,010 - __main__.index - INFO - adding document
+2025-05-30 00:58:57,011 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 00:58:57,012 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 00:58:57,013 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 00:58:57,069 - __main__ - INFO - inspecting term
+2025-05-30 01:00:39,375 - __main__ - INFO - running main
+2025-05-30 01:00:39,376 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:00:39,376 - __main__.index - INFO - accessing directory
+2025-05-30 01:00:39,385 - __main__.index - INFO - adding document
+2025-05-30 01:00:39,387 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:00:39,388 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 01:00:39,388 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 01:00:39,443 - __main__ - INFO - inspecting term
+2025-05-30 01:01:12,710 - __main__ - INFO - running main
+2025-05-30 01:01:12,711 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:01:12,711 - __main__.index - INFO - accessing directory
+2025-05-30 01:01:12,719 - __main__.index - INFO - adding document
+2025-05-30 01:01:12,721 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:01:12,721 - __main__.index - WARNING - No timestamp before content: 'WEBVTT...'
+2025-05-30 01:01:12,722 - __main__.index - WARNING - No timestamp before content: '...'
+2025-05-30 01:01:12,775 - __main__ - INFO - inspecting term
+2025-05-30 01:04:21,985 - __main__ - INFO - running main
+2025-05-30 01:04:21,986 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:04:21,986 - __main__.index - INFO - accessing directory
+2025-05-30 01:04:21,995 - __main__.index - INFO - adding document
+2025-05-30 01:04:21,996 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:04:22,098 - __main__ - INFO - inspecting term
+2025-05-30 01:05:06,218 - __main__ - INFO - running main
+2025-05-30 01:05:06,219 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:05:06,219 - __main__.index - INFO - accessing directory
+2025-05-30 01:05:06,228 - __main__.index - INFO - adding document
+2025-05-30 01:05:06,229 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:05:06,328 - __main__ - INFO - inspecting term
