@@ -8,7 +8,7 @@ log = logging.getLogger(__name__)
 #this is a test
 #imported libraries
 import os # allows interface with directory commands
-import tqdm #creates terminal loading bars
+import tqdm #creates terminal loading bars just wrap any iteration with this module and you should get a lightweight terminal progress bar
 import openai #interface for OpenAI
 
 #imported submodules/functions
@@ -17,13 +17,25 @@ from gpt_interface import interface
 #controls the flow of execution
 
 def main():
+    #some  sort of checksum value that checks to see if there already exists a index
     log.info('running main')
     directory_path = "Transcripts"
+
+    index = bootup(directory_path)  #establisting the index object
+
+    log.info('inspecting term')
+    inverted_index.inspect_term(index,'The') #just testing user input
+
+def bootup(directory_path) -> dict: #handle the bootup and initalization process of the index
+    log.info('booting up index')
     content_index = inverted_index()
     inverted_index.add_documents_from_directory(content_index, directory_path)
-    log.info('inspecting term')
-    inverted_index.inspect_term(content_index,'Joe')
+    return content_index
+
 
 #start point of flow control
 if __name__ == "__main__":
     main()  
+
+
+    #PODCAST STOP TIME 1:38:49

@@ -21,8 +21,10 @@ class inverted_index: #the self named class will build the searchable set of gen
 
     def add_documents_from_directory(self, directory) -> None: #this function adds the documents from the directory
         log.info('accessing directory')
+        
         files = [f for f in os.listdir(directory) if f.endswith('.txt')] #creates the handler for handling the directory and files.
-        for file_name in tqdm(files, desc="processing directory"): #tqdm updates and loading bar
+        
+        for file_name in tqdm(files, desc="Processing directory"): #tqdm updates and loading bar
             file_path = os.path.join(directory, file_name) #get the file name the directory
             self.add_document(file_path) #call the add document function from this class
     
@@ -30,25 +32,25 @@ class inverted_index: #the self named class will build the searchable set of gen
         log.info('adding document')
         with open(file_path, 'r', encoding='utf-8') as file: #open the file using the utf-8 encoding standard
             content = file.readlines() #get the 'conent' using the read lines
-        doc_id = len(self.documents)  # New document ID
+        doc_id = len(self.documents)  # New document ID based on the number of documents in the directory
         self.documents.append(file_path) #append the document ID that can be used to delinitate this document from others in the documents list
         log.info('document ID added to the documents list')
-        self.index_document(doc_id, content)
+        self.index_document(doc_id, content) # call the index document function that starts adding the words to the index dict.
 
     def index_document(self, doc_id, content) -> None:
         from collections import Counter
 
         current_timestamp = None
 
-        for line in tqdm(content, desc=f"indexing document {doc_id}", leave=False):
+        for line in tqdm(content, desc=f"Indexing document {doc_id}", leave=False):
             timestamp_match = re.match(r'(\d{2}:\d{2}:\d{2}\.\d{3})', line)
             if timestamp_match:
                 current_timestamp = timestamp_match.group(1)
             else:
                 terms = [term.strip().lower() for term in line.split() if term.strip()]
-                term_counts = Counter(terms)  # Count each term on the line
+                term_counts = Counter(terms)# Count each term on the line
 
-                for term, count in term_counts.items():
+                for term, count in tqdm(term_counts.items(), leave=False):
                     if term not in self.index:
                         self.index[term] = {}
                     if doc_id not in self.index[term]:
