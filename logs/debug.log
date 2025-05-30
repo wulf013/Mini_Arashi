@@ -201,3 +201,15 @@
 2025-05-30 01:05:06,228 - __main__.index - INFO - adding document
 2025-05-30 01:05:06,229 - __main__.index - INFO - document ID added to the documents list
 2025-05-30 01:05:06,328 - __main__ - INFO - inspecting term
+2025-05-30 01:08:19,197 - __main__ - INFO - running main
+2025-05-30 01:08:19,198 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:08:19,198 - __main__.index - INFO - accessing directory
+2025-05-30 01:08:19,206 - __main__.index - INFO - adding document
+2025-05-30 01:08:19,207 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:08:19,298 - __main__ - INFO - inspecting term
+2025-05-30 01:08:52,525 - __main__ - INFO - running main
+2025-05-30 01:08:52,526 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 01:08:52,526 - __main__.index - INFO - accessing directory
+2025-05-30 01:08:52,534 - __main__.index - INFO - adding document
+2025-05-30 01:08:52,535 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 01:08:52,636 - __main__ - INFO - inspecting term

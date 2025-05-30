@@ -71,7 +71,7 @@ class inverted_index: #the self named class will build the searchable set of gen
             doc_path = self.documents[doc_id] if doc_id < len(self.documents) else "<unknown document>"
             total_freq = sum(freq for _, freq in occurrences)
 
-            print(f"\n  Document ID: {doc_id}")
+            print(f" Document ID: {doc_id}")
             print(f"  File Path: {doc_path}")
             print(f"  Total Occurrences in Document: {total_freq}")
             print(f"  Occurrences by Timestamp:")
