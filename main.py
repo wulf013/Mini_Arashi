@@ -16,10 +16,13 @@ import openai #interface for OpenAI
 from index import inverted_index #imports the inverted index class
 from gpt_interface import interface
 #controls the flow of execution
+
 def main():
     log.info('running main')
-    inverted_index.__init__()
+    directory_path = "Transcripts/"
+    content_index = inverted_index
+    inverted_index.add_documents_from_directory(content_index, directory_path)
 
 #start point of flow control
 if __name__ == "__main__":
-    main()
+    main() 
