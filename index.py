@@ -42,8 +42,8 @@ class inverted_index: #the self named class will build the searchable set of gen
 
         current_timestamp = None
 
-        for line in tqdm(content, desc=f"Indexing document {doc_id}", leave=False):
-            timestamp_match = re.match(r'(\d{2}:\d{2}:\d{2}\.\d{3})', line)
+        for line in tqdm(content, desc=f"Indexing document {doc_id}", leave=False): #for each line in the file,
+            timestamp_match = re.match(r'(\d{2}:\d{2}:\d{2}\.\d{3})', line) #if there is a timestamp that matches the line
             if timestamp_match:
                 current_timestamp = timestamp_match.group(1)
             else:

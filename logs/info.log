@@ -339,3 +339,12 @@
 2025-05-30 15:56:45,024 - __main__.index - INFO - adding document
 2025-05-30 15:56:45,024 - __main__.index - INFO - document ID added to the documents list
 2025-05-30 15:56:45,458 - __main__ - INFO - inspecting term
+2025-05-30 16:18:26,230 - __main__ - INFO - running main
+2025-05-30 16:18:26,230 - __main__ - INFO - booting up index
+2025-05-30 16:18:26,230 - __main__.index - INFO - initialization of inverted index object
+2025-05-30 16:18:26,230 - __main__.index - INFO - accessing directory
+2025-05-30 16:18:26,245 - __main__.index - INFO - adding document
+2025-05-30 16:18:26,245 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 16:18:26,996 - __main__.index - INFO - adding document
+2025-05-30 16:18:26,996 - __main__.index - INFO - document ID added to the documents list
+2025-05-30 16:18:27,449 - __main__ - INFO - inspecting term

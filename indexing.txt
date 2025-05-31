@@ -1,0 +1,1 @@
+The purpose of this document is to detail how the program indexes the document into the dict that creates a searchable set.
