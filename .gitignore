@@ -13,3 +13,7 @@
 /.vs/slnx.sqlite
 /.vs/VSWorkspaceState.json
 /Arashi
+logs/info.log
+logs/debug.log
+__pycache__/log.cpython-311.pyc
+__pycache__/index.cpython-311.pyc
