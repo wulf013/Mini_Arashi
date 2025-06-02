@@ -348,3 +348,74 @@
 2025-05-30 16:18:26,996 - __main__.index - INFO - adding document
 2025-05-30 16:18:26,996 - __main__.index - INFO - document ID added to the documents list
 2025-05-30 16:18:27,449 - __main__ - INFO - inspecting term
+2025-06-02 00:06:56,897 - __main__ - INFO - running main
+2025-06-02 00:06:56,897 - __main__ - INFO - booting up index
+2025-06-02 00:06:56,897 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 00:06:56,897 - __main__.index - INFO - accessing directory
+2025-06-02 00:06:56,913 - __main__.index - INFO - adding document
+2025-06-02 00:06:56,913 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 00:06:57,678 - __main__.index - INFO - adding document
+2025-06-02 00:06:57,694 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 00:06:58,131 - __main__ - INFO - inspecting term
+2025-06-02 00:07:20,515 - __main__ - INFO - running main
+2025-06-02 00:07:20,515 - __main__ - INFO - booting up index
+2025-06-02 00:07:20,515 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 00:07:20,515 - __main__.index - INFO - accessing directory
+2025-06-02 00:07:20,531 - __main__.index - INFO - adding document
+2025-06-02 00:07:20,531 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 00:07:21,375 - __main__.index - INFO - adding document
+2025-06-02 00:07:21,375 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 00:07:21,844 - __main__ - INFO - inspecting term
+2025-06-02 11:57:38,057 - __main__ - INFO - running main
+2025-06-02 11:57:38,058 - __main__ - INFO - booting up index
+2025-06-02 11:57:38,058 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 11:57:38,059 - __main__.index - INFO - accessing directory
+2025-06-02 11:57:38,072 - __main__.index - INFO - adding document
+2025-06-02 11:57:38,083 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 11:57:38,868 - __main__.index - INFO - adding document
+2025-06-02 11:57:38,905 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 11:57:39,371 - __main__ - INFO - inspecting term
+2025-06-02 11:57:56,535 - __main__ - INFO - running main
+2025-06-02 11:57:56,536 - __main__ - INFO - booting up index
+2025-06-02 11:57:56,536 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 11:57:56,536 - __main__.index - INFO - accessing directory
+2025-06-02 11:57:56,545 - __main__.index - INFO - adding document
+2025-06-02 11:57:56,547 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 11:57:57,363 - __main__.index - INFO - adding document
+2025-06-02 11:57:57,364 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 11:57:57,841 - __main__ - INFO - inspecting term
+2025-06-02 14:16:54,729 - __main__ - INFO - running main
+2025-06-02 14:16:54,729 - __main__ - INFO - booting up index
+2025-06-02 14:16:54,730 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 14:16:54,731 - __main__.index - INFO - accessing directory
+2025-06-02 14:16:54,739 - __main__.index - INFO - adding document
+2025-06-02 14:16:54,740 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 14:16:55,532 - __main__.index - INFO - adding document
+2025-06-02 14:16:55,533 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 14:16:55,987 - __main__ - INFO - inspecting term
+2025-06-02 14:17:09,751 - __main__ - INFO - running main
+2025-06-02 14:17:09,752 - __main__ - INFO - booting up index
+2025-06-02 14:17:09,752 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 14:17:09,753 - __main__.index - INFO - accessing directory
+2025-06-02 14:17:09,762 - __main__.index - INFO - adding document
+2025-06-02 14:17:09,763 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 14:17:10,529 - __main__.index - INFO - adding document
+2025-06-02 14:17:10,530 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 14:17:10,971 - __main__ - INFO - inspecting term
+2025-06-02 14:24:41,731 - __main__ - INFO - running main
+2025-06-02 14:24:41,732 - __main__ - INFO - booting up index
+2025-06-02 14:24:41,732 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 14:24:41,733 - __main__.index - INFO - accessing directory
+2025-06-02 14:24:41,741 - __main__.index - INFO - adding document
+2025-06-02 14:24:41,743 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 14:24:45,478 - __main__.index - INFO - adding document
+2025-06-02 14:24:45,479 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 15:11:45,817 - __main__ - INFO - running main
+2025-06-02 15:11:45,817 - __main__ - INFO - booting up index
+2025-06-02 15:11:45,818 - __main__.index - INFO - initialization of inverted index object
+2025-06-02 15:11:45,818 - __main__.index - INFO - accessing directory
+2025-06-02 15:11:45,827 - __main__.index - INFO - adding document
+2025-06-02 15:11:45,828 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 15:11:46,620 - __main__.index - INFO - adding document
+2025-06-02 15:11:46,621 - __main__.index - INFO - document ID added to the documents list
+2025-06-02 15:11:47,143 - __main__ - INFO - inspecting term

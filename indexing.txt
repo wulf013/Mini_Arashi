@@ -1,1 +1,36 @@
 The purpose of this document is to detail how the program indexes the document into the dict that creates a searchable set.
+
+I am using a nested python dictionary to store the information that I index from the podcast transcripts. 
+
+This is the inherant structure of self.index = {}
+	The top-level key: a 'term' ( a string, lower cased and stripped)
+
+	Value for each term: another dictionary keyed by 'doc_id' (an integer)
+
+	Value for each 'doc_id': a list of tuples representing occurrences
+		Each tuple inside that list is:
+			(current_timestamp, count)
+				- current_timestamp is a string, indicating when the term appeared in the transcript line
+				- count is an integer indicating how many times the term appeared in that timestamp's line
+
+	Here is a visual representation of the structure of the index:
+		{
+		  "term1": {
+			  0: [("00:00:30.753", 2), ("00:01:01.123", 1)],
+			  2: [("00:03:21.101", 1)]
+			},
+		  "term2": {
+			  1: [("00:00:45.500", 3)]
+			},
+		}
+
+So, what about the documents? self.documents = []
+	This is a list of file paths
+	Each document ID corresponds to its index in this list
+	'doc_id' refrences are always indices in this list
+
+The main index is a dictionary of dictionaries of lists
+The outer dictionary keys: terms (strings)
+Inner dictionary keys: document IDs (integers)
+Inner dictionary values: list of (timestamp, frequency) tuples.
+Document list maps doc IDs to file paths.

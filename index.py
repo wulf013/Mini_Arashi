@@ -10,13 +10,17 @@ log = logging.getLogger('__main__.'+__name__)
 #imported libraries
 import os #directory navigation
 from tqdm import tqdm #progress bars, because its cool but also gives visual cues and point of intercept for error and log statements. 
+from collections import defaultdict #this is a standard python library ----- insert more info here
+from collections import Counter #standard python library that lets me count frequency
 import re # regular expressions allows for interactions beyond US ASCII standards for text manipulation in python
 
 class inverted_index: #the self named class will build the searchable set of generated data from the
     def __init__(self) -> None: #object constructor that creates the index itself
         log.info('initialization of inverted index object')
         ### set some sort of checksum here so that the initalization can tell if it needs to build the index or just search it I imagine this might just be a developer function anyways
-        self.index = {} # the index will have the following format  {term: {doc_id:{[timestamp]},frequency}}
+        self.index = defaultdict(lambda: defaultdict(lambda: defaultdict(int))) #this is a nested dictionary that stores the values that we are indexing from the podcast transcripts.
+
+ # the index will have the following format  {term: {doc_id:{[timestamp]},frequency}}
         self.documents = [] # list of documents that the init will build
 
     def add_documents_from_directory(self, directory) -> None: #this function adds the documents from the directory
@@ -38,8 +42,6 @@ class inverted_index: #the self named class will build the searchable set of gen
         self.index_document(doc_id, content) # call the index document function that starts adding the words to the index dict.
 
     def index_document(self, doc_id, content) -> None:
-        from collections import Counter
-
         current_timestamp = None
 
         for line in tqdm(content, desc=f"Indexing document {doc_id}", leave=False): #for each line in the file,
@@ -54,35 +56,39 @@ class inverted_index: #the self named class will build the searchable set of gen
                     if term not in self.index:
                         self.index[term] = {}
                     if doc_id not in self.index[term]:
-                        self.index[term][doc_id] = []
-                
-                    self.index[term][doc_id].append((current_timestamp, count))
+                        self.index[term][doc_id] = {}
+                    if current_timestamp not in self.index[term][doc_id]:
+                        self.index[term][doc_id][current_timestamp] = 0
 
+                    self.index[term][doc_id][current_timestamp] +=   count
 
     def inspect_term(self, term):
         term = term.lower().strip()
         data = self.index.get(term, None)
-    
+
         if not data:
             print(f"'{term}' not found in index.")
             return
 
         print(f"'{term}' found in {len(data)} document(s):")
-    
-        for doc_id, occurrences in data.items():
+
+        for doc_id, timestamp_dict in data.items():
             doc_path = self.documents[doc_id] if doc_id < len(self.documents) else "<unknown document>"
-            total_freq = sum(freq for _, freq in occurrences)
+            total_freq = sum(timestamp_dict.values())
 
             print(f" Document ID: {doc_id}")
             print(f"  File Path: {doc_path}")
             print(f"  Total Occurrences in Document: {total_freq}")
             print(f"  Occurrences by Timestamp:")
 
-            for timestamp, freq in occurrences:
+            for timestamp, freq in timestamp_dict.items():
                 print(f"    {timestamp} - {freq} time(s)")
 
     def search(self, term:str) -> dict: #search through the dict
         return self.index.get(term, {}).keys()  # get the term along wiht the keys associated with the term
     
     def get_document(self, doc_id) -> str: #returns the document file path, given the document ID
-        return self.documents.get(doc_id, None)
+        if 0 <= doc_id < len(self.documents):
+            return self.documents[doc_id]
+        else:
+            return None
