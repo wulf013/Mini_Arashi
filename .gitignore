@@ -14,5 +14,6 @@
 /.vs/VSWorkspaceState.json
 /Arashi
 logs/
+.log
 __pycache__/log.cpython-311.pyc
 __pycache__/index.cpython-311.pyc
