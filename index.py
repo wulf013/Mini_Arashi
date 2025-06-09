@@ -3,6 +3,7 @@
 #boilerplate logging 
 from importlib.resources import contents
 import logging
+from tkinter import CURRENT
 from log import setup_logging
 setup_logging()
 log = logging.getLogger('__main__.'+__name__)
@@ -17,10 +18,8 @@ import re # regular expressions allows for interactions beyond US ASCII standard
 class inverted_index: #the self named class will build the searchable set of generated data from the
     def __init__(self) -> None: #object constructor that creates the index itself
         log.info('initialization of inverted index object')
-        ### set some sort of checksum here so that the initalization can tell if it needs to build the index or just search it I imagine this might just be a developer function anyways
-        self.index = defaultdict(lambda: defaultdict(lambda: defaultdict(int))) #this is a nested dictionary that stores the values that we are indexing from the podcast transcripts.
-
- # the index will have the following format  {term: {doc_id:{[timestamp]},frequency}}
+        self.index = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {"count": 0, "positions": []}))) #this is a nested dictionary that stores the values that we are indexing from the podcast transcripts
+        # the index will have the following format  {term: {doc_id:{[timestamp]},frequency}}
         self.documents = [] # list of documents that the init will build
 
     def add_documents_from_directory(self, directory) -> None: #this function adds the documents from the directory
@@ -48,44 +47,38 @@ class inverted_index: #the self named class will build the searchable set of gen
             timestamp_match = re.match(r'(\d{2}:\d{2}:\d{2}\.\d{3})', line) #if there is a timestamp that matches the line
             if timestamp_match:
                 current_timestamp = timestamp_match.group(1)
-            else:
-                terms = [term.strip().lower() for term in line.split() if term.strip()]
-                term_counts = Counter(terms)# Count each term on the line
+            if  current_timestamp is None:
+                continue
 
-                for term, count in tqdm(term_counts.items(), leave=False):
-                    if term not in self.index:
-                        self.index[term] = {}
-                    if doc_id not in self.index[term]:
-                        self.index[term][doc_id] = {}
-                    if current_timestamp not in self.index[term][doc_id]:
-                        self.index[term][doc_id][current_timestamp] = 0
+            terms = [term.strip().lower() for term in line.split() if term.strip()]
 
-                    self.index[term][doc_id][current_timestamp] +=   count
+            for position, term in tqdm(enumerate(terms), leave=False):
+                self.index[term][doc_id][current_timestamp]["count"] +=   1
+                self.index[term][doc_id][current_timestamp]["positions"].append(position)
 
     def inspect_term(self, term):
-        term = term.lower().strip()
+        term = term.lower().strip() #lowercase and strip
         data = self.index.get(term, None)
 
         if not data:
             print(f"'{term}' not found in index.")
             return
 
-        print(f"'{term}' found in {len(data)} document(s):")
+        print(f"'{term}' found in {len(data)} document(s):") #length of the term dictionary which should match the number of transcripts we a re using
 
-        for doc_id, timestamp_dict in data.items():
+        for doc_id, timestamp_data in data.items():
             doc_path = self.documents[doc_id] if doc_id < len(self.documents) else "<unknown document>"
-            total_freq = sum(timestamp_dict.values())
+            total_freq = sum(info["count"] for info in timestamp_data.values())
 
             print(f" Document ID: {doc_id}")
             print(f"  File Path: {doc_path}")
             print(f"  Total Occurrences in Document: {total_freq}")
             print(f"  Occurrences by Timestamp:")
 
-            for timestamp, freq in timestamp_dict.items():
-                print(f"    {timestamp} - {freq} time(s)")
-
-    def search(self, term:str) -> dict: #search through the dict
-        return self.index.get(term, {}).keys()  # get the term along wiht the keys associated with the term
+            for timestamp, info in timestamp_data.items():
+                count = info["count"]
+                positions = info["positions"]
+                print(f"    {timestamp} - {count} time(s), positions: {positions}")
     
     def get_document(self, doc_id) -> str: #returns the document file path, given the document ID
         if 0 <= doc_id < len(self.documents):
