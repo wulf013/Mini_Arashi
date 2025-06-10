@@ -13,7 +13,7 @@ from collections import defaultdict #this is a standard python library ----- ins
 from collections import Counter #standard python library that lets me count frequency
 import re # regular expressions allows for interactions beyond US ASCII standards for text manipulation in python
 
-class inverted_index: #the self named class will build the searchable set of generated data from the
+class Inverted_Index: #the self named class will build the searchable set of generated data from the
     def __init__(self) -> None: #object constructor that creates the index itself
         log.info('initialization of inverted index object')
         self.index = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: {"count": 0, "positions": []}))) #this is a nested dictionary that stores the values that we are indexing from the podcast transcripts
@@ -32,7 +32,7 @@ class inverted_index: #the self named class will build the searchable set of gen
     def _add_document(self, file_path) -> None: #adding a document, by acessing the directory and interacting directly with the file
         log.info('adding document')
         with open(file_path, 'r', encoding='utf-8') as file: #open the file using the utf-8 encoding standard
-            content = file.readlines() #get the 'conent' using the read lines
+            content = file.readlines() #get the 'content' using the read lines
         doc_id = len(self.documents)  # New document ID based on the number of documents in the directory
         self.documents.append(file_path) #append the document ID that can be used to delinitate this document from others in the documents list
         log.info('document ID added to the documents list')
@@ -78,8 +78,49 @@ class inverted_index: #the self named class will build the searchable set of gen
                 positions = info["positions"]
                 print(f"    {timestamp} - {count} time(s), positions: {positions}")
 
-    def cascade_search(): # a cascading search function that allows the user to look up phrases.
-        log.info('executing cascading search')
+    def search_phrase(self, phrase: str): # a cascading search function that allows the user to look up phrases.
+        log.info('executing phrase search')
+        terms =  [term.strip().lower() for term in phrase.split()]
+       
+        if not terms:
+            log.error('Empty Phrase')
+            return[]
+
+        common_locations = self._get_common_locations(terms)
+        if not common_locations:
+            log.info('No locations with all terms present')
+            return[]
+
+        matches = self._check_phrase_match(terms, common_locations)
+
+        for doc_id, timestamp, pos in matches:
+            doc_path = self._get_document(doc_id) or "<unknown>"
+            #print(f"Phrase found in doc {doc_id} ({doc_path}) at {timestamp}  starting at position {position}")
+
+        return matches
+
+    def _check_phrase_match(self, terms, locations):
+        matches = []
+
+        for doc_id, timestamp in locations:
+            # Build a list of position sets per term in order
+            try:
+                position_lists = [
+                    set(self.index[term][doc_id][timestamp]["positions"])
+                    for term in terms
+                ]
+            except KeyError:
+                continue  # Skip if any term is missing here
+
+            # Identify possible starting positions for the phrase
+            first_term_positions = position_lists[0]
+
+            for pos in first_term_positions:
+                if all((pos + i) in position_lists[i] for i in range(len(terms))):
+                    matches.append((doc_id, timestamp, pos))
+                    break  # Optional: stop at first match for this location
+
+        return matches
 
     def _get_common_locations(self, terms): #returns the intersection of a set of all timestamps where all the terms appear
         log.info('identifying commong locations of key terms')
@@ -89,9 +130,23 @@ class inverted_index: #the self named class will build the searchable set of gen
             for doc_id, timestamps in  self.index.get(term, {}).items():
                 for ts in timestamps:
                     locations.add((doc_id, ts))
-                    term_location.append(locations)
+            term_location.append(locations)
+        
         return set.intersection(*term_location) if term_location else set()
-    
+
+    def print_matches(self, matches):
+        if not matches:
+            print("No matches found.")
+            return
+
+        print(f"\nFound {len(matches)} match(es):\n")
+        for i, (doc_id, timestamp, start_pos) in enumerate(matches, 1):
+            doc_path = self._get_document(doc_id) or "<unknown file>"
+            print(f"{i}. Document ID: {doc_id}")
+            print(f"   File Path:   {doc_path}")
+            print(f"   Timestamp:   {timestamp}")
+            print(f"   Start Pos:   {start_pos}\n")
+
     def _get_document(self, doc_id) -> str: #returns the document file path, given the document ID
         if 0 <= doc_id < len(self.documents):
             return self.documents[doc_id]

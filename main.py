@@ -12,7 +12,7 @@ import tqdm #creates terminal loading bars just wrap any iteration with this mod
 import openai #interface for OpenAI
 
 #imported submodules/functions
-from index import inverted_index #imports the inverted index class
+from index import Inverted_Index #imports the inverted index class
 from gpt_interface import interface
 #controls the flow of execution
 
@@ -22,13 +22,16 @@ def main():
     directory_path = "Transcripts"
 
     index = bootup(directory_path)  #establisting the index object
-    log.info('inspecting term')
-    inverted_index.search_term(index,'Joe ') #just testing user input
+    log.info('searching for term')
+    Inverted_Index.search_term(index,'Joe ') #just testing user input
+    log.info('searching for phrase')
+    results = Inverted_Index.search_phrase(index,'Joe Black')
+    Inverted_Index.print_matches(index, results)
 
 def bootup(directory_path) -> dict: #handle the bootup and initalization process of the index
     log.info('booting up index')
-    content_index = inverted_index()
-    inverted_index.add_documents_from_directory(content_index, directory_path)
+    content_index = Inverted_Index()
+    Inverted_Index.add_documents_from_directory(content_index, directory_path)
     return content_index
 
 
