@@ -22,9 +22,8 @@ def main():
     directory_path = "Transcripts"
 
     index = bootup(directory_path)  #establisting the index object
-
     log.info('inspecting term')
-    inverted_index.inspect_term(index,'Sergeant ') #just testing user input
+    inverted_index.search_term(index,'Joe ') #just testing user input
 
 def bootup(directory_path) -> dict: #handle the bootup and initalization process of the index
     log.info('booting up index')
