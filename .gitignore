@@ -16,3 +16,4 @@
 *.log
 __pycache__/log.cpython-311.pyc
 __pycache__/index.cpython-311.pyc
+.vscode/settings.json
