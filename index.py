@@ -25,7 +25,7 @@ class Inverted_Index: #the self named class will build the searchable set of gen
         
         files = [f for f in os.listdir(directory) if f.endswith('.txt')] #creates the handler for handling the directory and files.
         
-        for file_name in tqdm(files, desc="Processing directory"): #tqdm updates and loading bar
+        for file_name in tqdm(files, desc="Processing file directory"): #tqdm updates and loading bar
             file_path = os.path.join(directory, file_name) #get the file name the directory
             self._add_document(file_path) #call the add document function from this class
     
@@ -91,11 +91,43 @@ class Inverted_Index: #the self named class will build the searchable set of gen
             log.info('No locations with all terms present')
             return[]
 
-        matches = self._check_phrase_match(terms, common_locations)
+        matches = self._partial_phrase_match(terms, common_locations, 3)
 
         for doc_id, timestamp, pos in matches:
             doc_path = self._get_document(doc_id) or "<unknown>"
             #print(f"Phrase found in doc {doc_id} ({doc_path}) at {timestamp}  starting at position {position}")
+
+        return matches
+    
+    def _partial_phrase_match(self, terms, locations, strict:int):
+        matches = []
+
+        for doc_id, timestamp in locations:
+
+            try:
+                position_lists = [
+                    set(self.index[term][doc_id][timestamp]["positions"])
+                    for term in terms
+                ]
+            except KeyError:
+                continue
+
+            first_term_positions = position_lists[0]
+            
+            for pos in first_term_positions:
+                cur_pos = pos
+                status = True
+
+                for i in range(1, len(position_lists)):
+                    next_positions = [p for p in position_lists[i] if 0 < p - cur_pos <= strict]        
+                    if not next_positions:
+                        status = False
+                        break
+                    cur_pos = next_positions[0]
+
+                if status:
+                    matches.append((doc_id,timestamp, pos))
+                    break
 
         return matches
 

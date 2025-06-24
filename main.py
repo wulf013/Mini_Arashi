@@ -22,10 +22,10 @@ def main():
     directory_path = "Transcripts"
 
     index = bootup(directory_path)  #establisting the index object
-    log.info('searching for term')
-    Inverted_Index.search_term(index,'Joe ') #just testing user input
+    #log.info('searching for term')
+    #Inverted_Index.search_term(index,'Joe') #just testing user input
     log.info('searching for phrase')
-    results = Inverted_Index.search_phrase(index,'Joe Black')
+    results = Inverted_Index.search_phrase(index,'That happened')
     Inverted_Index.print_matches(index, results)
 
 def bootup(directory_path) -> dict: #handle the bootup and initalization process of the index
