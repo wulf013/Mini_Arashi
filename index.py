@@ -1,10 +1,11 @@
-#this is an index module written by Enrique Castro
+#this is a python submodule written by Enrique Castro
 
 #boilerplate logging 
 import logging
 from log import setup_logging
+
 setup_logging()
-log = logging.getLogger('__main__.'+__name__)
+log = logging.getLogger("__main__.arashi_engine."+__name__)
 
 #imported libraries
 import os #directory navigation
@@ -54,133 +55,5 @@ class Inverted_Index: #the self named class will build the searchable set of gen
                 self.index[term][doc_id][current_timestamp]["count"] +=   1
                 self.index[term][doc_id][current_timestamp]["positions"].append(position)
 
-    def search_term(self, term):
-        term = term.lower().strip() #lowercase and strip
-        data = self.index.get(term, None)
-
-        if not data:
-            print(f"'{term}' not found in index.")
-            return
-
-        print(f"'{term}' found in {len(data)} document(s):") #length of the term dictionary which should match the number of transcripts we a re using
-
-        for doc_id, timestamp_data in data.items():
-            doc_path = self.documents[doc_id] if doc_id < len(self.documents) else "<unknown document>"
-            total_freq = sum(info["count"] for info in timestamp_data.values())
-
-            print(f" Document ID: {doc_id}")
-            print(f"  File Path: {doc_path}")
-            print(f"  Total Occurrences in Document: {total_freq}")
-            print(f"  Occurrences by Timestamp:")
-
-            for timestamp, info in timestamp_data.items():
-                count = info["count"]
-                positions = info["positions"]
-                print(f"    {timestamp} - {count} time(s), positions: {positions}")
-
-    def search_phrase(self, phrase: str): # a cascading search function that allows the user to look up phrases.
-        log.info('executing phrase search')
-        terms =  [term.strip().lower() for term in phrase.split()]
-       
-        if not terms:
-            log.error('Empty Phrase')
-            return[]
-
-        common_locations = self._get_common_locations(terms)
-        if not common_locations:
-            log.info('No locations with all terms present')
-            return[]
-
-        matches = self._partial_phrase_match(terms, common_locations, 3)
-
-        for doc_id, timestamp, pos in matches:
-            doc_path = self._get_document(doc_id) or "<unknown>"
-            #print(f"Phrase found in doc {doc_id} ({doc_path}) at {timestamp}  starting at position {position}")
-
-        return matches
-    
-    def _partial_phrase_match(self, terms, locations, strict:int):
-        matches = []
-
-        for doc_id, timestamp in locations:
-
-            try:
-                position_lists = [
-                    set(self.index[term][doc_id][timestamp]["positions"])
-                    for term in terms
-                ]
-            except KeyError:
-                continue
-
-            first_term_positions = position_lists[0]
-            
-            for pos in first_term_positions:
-                cur_pos = pos
-                status = True
-
-                for i in range(1, len(position_lists)):
-                    next_positions = [p for p in position_lists[i] if 0 < p - cur_pos <= strict]        
-                    if not next_positions:
-                        status = False
-                        break
-                    cur_pos = next_positions[0]
-
-                if status:
-                    matches.append((doc_id,timestamp, pos))
-                    break
-
-        return matches
-
-    def _check_phrase_match(self, terms, locations):
-        matches = []
-
-        for doc_id, timestamp in locations:
-            # Build a list of position sets per term in order
-            try:
-                position_lists = [
-                    set(self.index[term][doc_id][timestamp]["positions"])
-                    for term in terms
-                ]
-            except KeyError:
-                continue  # Skip if any term is missing here
-
-            # Identify possible starting positions for the phrase
-            first_term_positions = position_lists[0]
-
-            for pos in first_term_positions:
-                if all((pos + i) in position_lists[i] for i in range(len(terms))):
-                    matches.append((doc_id, timestamp, pos))
-                    break  # Optional: stop at first match for this location
-
-        return matches
-
-    def _get_common_locations(self, terms): #returns the intersection of a set of all timestamps where all the terms appear
-        log.info('identifying commong locations of key terms')
-        term_location = []
-        for term in terms:
-            locations = set()
-            for doc_id, timestamps in  self.index.get(term, {}).items():
-                for ts in timestamps:
-                    locations.add((doc_id, ts))
-            term_location.append(locations)
-        
-        return set.intersection(*term_location) if term_location else set()
-
-    def print_matches(self, matches):
-        if not matches:
-            print("No matches found.")
-            return
-
-        print(f"\nFound {len(matches)} match(es):\n")
-        for i, (doc_id, timestamp, start_pos) in enumerate(matches, 1):
-            doc_path = self._get_document(doc_id) or "<unknown file>"
-            print(f"{i}. Document ID: {doc_id}")
-            print(f"   File Path:   {doc_path}")
-            print(f"   Timestamp:   {timestamp}")
-            print(f"   Start Pos:   {start_pos}\n")
-
     def _get_document(self, doc_id) -> str: #returns the document file path, given the document ID
-        if 0 <= doc_id < len(self.documents):
-            return self.documents[doc_id]
-        else:
-            return None
+         return self.documents[doc_id] if 0 <= doc_id < len(self.documents) else None

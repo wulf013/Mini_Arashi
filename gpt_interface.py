@@ -2,7 +2,7 @@
 #the intent of this submodule is to interface with OpenAI's ChatGPT
 
 import tqdm
-import index
+import arashi_engine
 import os
 import re
 
