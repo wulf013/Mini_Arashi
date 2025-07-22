@@ -5,6 +5,7 @@ from log import setup_logging
 setup_logging()
 log = logging.getLogger("__main__."+__name__)
 
+#These submodules portion out parts of the engine for planning clarity 
 from search import Transcript_Search
 from index import Inverted_Index
 

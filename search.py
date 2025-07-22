@@ -46,7 +46,14 @@ class Transcript_Search: #handles the search functionality of the inverted index
         
         return set.intersection(*term_location) if term_location else set()
         
-    def _sliding_window_phrase_match(): # a distinct partial search funtion that maintains the order of terms but permits flexibility in their distance+
+    def _sliding_window_phrase_match(self, terms, locations): # a distinct partial search funtion that maintains the order of terms but permits flexibility in their distance+
+        for doc_id, timestamp in locations:
+            try:
+                postition_occurannces = [
+                    
+                ]
+            except KeyError:
+                continue
         return None
 
     def _partial_phrase_match(self, terms, locations, strict:int): #still have to review this funciton to make sure that its completely up to snuff
